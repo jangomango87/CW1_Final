@@ -1,0 +1,44 @@
+#+title: README
+
+* CW2
+** Objectives
+*** Cousine Categories
+*** Geographic Location of categories
+** Tasks
+*** Create scripts to:
+**** Data Fetching Functions
+- Open any food panda page with URL
+- Open any food panda restaraunt page
+- Open any food panda city page
+- Open Reviews Modal
+
+- Get all restaurants from a city
+- Get all reviews from modal
+- Get menu from a restaraunt
+**** Data Consistency Check
+- Scrape and compare with on file data
+**** Data Loading Functions
+- Load into pandas
+**** Data Cleaning Functions
+- Drop Null Values
+- Drop Restaurants by column name
+**** Data Analysis Functions
+
+***** Come up with a Objective ranking Metric (i.e. what is a popular restaurant)
+Let's say we were to take the Average Rating as the metric.
+
+***** Task 1 a. Descriptive Statistics Simple
+
+- What's number of reviews is statistically relevant?
+
+- What's the variance in reviews.
+
+- How many reviews are just a rating and how many have text + rating
+
+***** Task 1b: Descriptive Statistics Segment Restaurants
+
+- What are the different categories of restaurants?
+
+- What's the overlap among categories?
+
+- What the Average rating for each category?
