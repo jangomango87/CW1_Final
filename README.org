@@ -17,7 +17,12 @@
 - Get menu from a restaraunt
 **** Data Consistency Check
 - Scrape and compare with on file data
+  Websites change/Databases Change
+- Get Statistics on No. New Restaraunts etc
 **** Data Loading Functions
+- Type checking
+- Validation of dates
+- Validation of geo-coordinates
 - Load into pandas
 **** Data Cleaning Functions
 - Drop Null Values
