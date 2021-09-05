@@ -7,10 +7,29 @@ if __name__ == "__main__":
     file_name = "../data_frame_edited.csv"
 
     data_frame = pd.read_csv(file_name)
+    print(data_frame.columns)
 
-    #print(data_frame.head())
+    histogram_columns = [
+        'budget',
+        'rating',
+        'reviewNumber',
+        'potentialAction.priceSpecification.price'
+    ]
 
-    #show_dataframe_hist(data_frame)
-    show_heatmap(data_frame)
+    data_frame_histogram = data_frame[histogram_columns]
+
+
+
+    print(data_frame_histogram.head())
+    print(data_frame_histogram.count(0))
+
+    budget_counts = data_frame_histogram[['budget']].groupby(by='budget').agg('count')
+    print(budget_counts)
+    #print()
+
+
+
+    #show_dataframe_hist(data_frame_histogram)
+    #show_heatmap(data_frame_histogram)
 
 

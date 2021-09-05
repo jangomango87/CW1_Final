@@ -47,3 +47,10 @@ Let's say we were to take the Average Rating as the metric.
 - What's the overlap among categories?
 
 - What the Average rating for each category?
+*** Plot Data
+**** Histograms
+**** Heatmap
+***** Number of ratings
+***** Ratings
+***** Budget
+***** Specification_Price
