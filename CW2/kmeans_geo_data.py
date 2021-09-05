@@ -17,7 +17,8 @@ def get_optimal_cluster(
     variable,
     max_k=10
 ):
-    X = df[variable]
+    data= df.copy()
+    X = data[variable]
     # iterations
     different_k_clusters = []
 
@@ -121,10 +122,9 @@ if __name__ == "__main__":
     )
 
     # add clustering info to the original dataset
-    data_frame_cluster[["cluster", "centroids"]
-                       ] = data_frame_cluster[["cluster", "centroids"]]
+    df_city_data[["cluster", "centroids"]] = data_frame_cluster[["cluster", "centroids"]]
 
-    print(data_frame_cluster.head())
+    print(df_city_data.head())
 
     location = get_city_location_geopy("Islamabad")
 

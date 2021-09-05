@@ -10,7 +10,6 @@ def get_city_location_geopy(
     # get location
     locator = geopy.geocoders.Nominatim(user_agent="MyCoder")
     location = locator.geocode(city)
-    print(location)
     # keep latitude and longitude only
     location = [location.latitude, location.longitude]
 
@@ -34,7 +33,6 @@ def get_folium_map(
     data["color"] = data[color].apply(lambda x:
                                       lst_colors[lst_elements.index(x)])
 
-    print(data.head())
 
     # create size column (scaled)
     scaler = preprocessing.MinMaxScaler(feature_range=(3, 15))
