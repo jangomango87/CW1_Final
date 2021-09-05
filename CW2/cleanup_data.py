@@ -48,6 +48,8 @@ if __name__ == "__main__":
     #cusines =[]
 
     key_to_extract = "id"
+    #key_to_extract = "url_key"
+
 
     data_frame_edited = replace_list_of_dicts_by_value(
         data_frame,
@@ -57,4 +59,7 @@ if __name__ == "__main__":
 
     print(data_frame_edited.head()[cusine_col])
 
-        #print(id_)
+    data_frame_edited.to_csv("../data_frame_edited.csv")
+
+
+
