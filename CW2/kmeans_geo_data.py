@@ -93,16 +93,23 @@ if __name__ == "__main__":
     city = "islamabad"
     df_city_data = df_final_data.loc[df_final_data["city"] == city]
 
+    print(df_city_data.columns)
+
     variables = [
         'geo.latitude',
         'geo.longitude'
     ]
+    #variables = [
+    #    'characteristics.primary_cuisine.id'
+    #]
 
     k, inertia = get_optimal_cluster(
         df_city_data,
         variable=variables,
         max_k=10
     )
+
+    print(k)
 
     plt.plot(inertia)
     plt.show()
@@ -127,16 +134,17 @@ if __name__ == "__main__":
     print(df_city_data.head())
 
     location = get_city_location_geopy("Islamabad")
+    lst_colors=["red", "orange", "green", "purple", "blue", "yellow"]
 
     map_ = get_folium_map(
-        df=data_frame_cluster,
+        df=df_city_data,
         location=location,
         x='geo.latitude',
         y='geo.longitude',
         color='cluster',
         size='cluster',
-        popup='centroids',
-        lst_colors=["red", "orange", "green", "purple", "blue", "yellow"]
+        popup='characteristics.primary_cuisine.id',
+        lst_colors= lst_colors[:k+1]
     )
 
     map_.save("cluster.html")

@@ -1,7 +1,6 @@
 import pandas as pd
 import ast
 
-
 def get_value_from_list_of_dicts(
     list_of_dicts=None,
     key_to_extract=None
@@ -16,9 +15,9 @@ def get_value_from_list_of_dicts(
 
 
 def replace_list_of_dicts_by_value(
-    data_frame,
-    column_name,
-    key_to_extract
+    data_frame=None,
+    column_name=None,
+    key_to_extract = "id"
 ):
     for index, row in data_frame.iterrows():
         list_of_dicts = ast.literal_eval(row[column_name])
@@ -28,7 +27,7 @@ def replace_list_of_dicts_by_value(
             key_to_extract=key_to_extract
         )
 
-        data_frame.at[index, cusine_col] = id_list
+        data_frame.at[index, column_name] = id_list
 
     return data_frame
 
@@ -38,7 +37,7 @@ if __name__ == "__main__":
 
     data_frame = pd.read_csv(file_name)
 
-    data_frame_sub = data_frame.iloc[:10]
+    data_frame_sub = data_frame
     # print(data_frame_sub)
 
     #set_cusine_id = set()
@@ -47,8 +46,8 @@ if __name__ == "__main__":
 
     #cusines =[]
 
-    #key_to_extract = "id"
-    key_to_extract = "url_key"
+    key_to_extract = "id"
+    #key_to_extract = "url_key"
 
 
     data_frame_edited = replace_list_of_dicts_by_value(
@@ -57,9 +56,17 @@ if __name__ == "__main__":
         key_to_extract = key_to_extract
     )
 
-    print(data_frame_edited.head()[cusine_col])
+    key_to_extract = "name"
+    target_col = "characteristics.food_characteristics"
+    data_frame_edited = replace_list_of_dicts_by_value(
+        data_frame_edited,
+        column_name = target_col,
+        key_to_extract = key_to_extract
+    )
 
-    #data_frame_edited.to_csv("../data_frame_edited.csv")
+    print(data_frame_edited.head()[target_col])
+
+#    data_frame_edited.to_csv("../data_frame_edited.csv")
 
 
 
