@@ -42,29 +42,25 @@ if __name__ == "__main__":
 
     #set_cusine_id = set()
 
-    cusine_col = "characteristics.cuisines"
+    target_col = {
+        "characteristics.cuisines": "id",
+        "characteristics.food_characteristics": "name"
+    }
 
     #cusines =[]
 
-    key_to_extract = "id"
     #key_to_extract = "url_key"
 
 
-    data_frame_edited = replace_list_of_dicts_by_value(
-        data_frame,
-        column_name = cusine_col,
-        key_to_extract = key_to_extract
-    )
+    for key, value in target_col.items():
+        data_frame_edited = replace_list_of_dicts_by_value(
+            data_frame,
+            column_name = key,
+            key_to_extract = value
+        )
 
-    key_to_extract = "name"
-    target_col = "characteristics.food_characteristics"
-    data_frame_edited = replace_list_of_dicts_by_value(
-        data_frame_edited,
-        column_name = target_col,
-        key_to_extract = key_to_extract
-    )
 
-    print(data_frame_edited.head()[target_col])
+    print(data_frame_edited.head())
 
 #    data_frame_edited.to_csv("../data_frame_edited.csv")
 
