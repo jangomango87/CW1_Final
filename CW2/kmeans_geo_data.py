@@ -131,20 +131,21 @@ if __name__ == "__main__":
     # add clustering info to the original dataset
     df_city_data[["cluster", "centroids"]] = data_frame_cluster[["cluster", "centroids"]]
 
-    print(df_city_data.head())
+    df_city_data.to_csv("cluster_data.csv")
 
-    location = get_city_location_geopy("Islamabad")
-    lst_colors=["red", "orange", "green", "purple", "blue", "yellow"]
 
-    map_ = get_folium_map(
-        df=df_city_data,
-        location=location,
-        x='geo.latitude',
-        y='geo.longitude',
-        color='cluster',
-        size='cluster',
-        popup='characteristics.primary_cuisine.id',
-        lst_colors= lst_colors[:k+1]
-    )
+    #location = get_city_location_geopy("Islamabad")
+    #lst_colors=["red", "orange", "green", "purple", "blue", "yellow"]
 
-    map_.save("cluster.html")
+    #map_ = get_folium_map(
+    #    df=df_city_data,
+    #    location=location,
+    #    x='geo.latitude',
+    #    y='geo.longitude',
+    #    color='cluster',
+    #    size='cluster',
+    #    popup='characteristics.primary_cuisine.id',
+    #    lst_colors= lst_colors[:k+1]
+    #)
+
+    #map_.save("cluster.html")

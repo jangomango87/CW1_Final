@@ -16,7 +16,7 @@ def show_dataframe_hist(
         grid=False
     )
 
-    plt.tight_layout(rect=(0, 0, 1.2, 1.2))
+    plt.tight_layout(rect=(0, 0, 1, 1))
     plt.show()
 
 
